@@ -18,7 +18,7 @@
         .panel { background: #333; padding: 30px; border-radius: 20px; display: inline-block; margin-bottom: 40px; }
         select { padding: 15px; font-size: 18px; border-radius: 10px; margin-right: 15px; }
         button { padding: 15px 30px; font-size: 18px; font-weight: bold; background-color: #28a745; color: white; border: none; border-radius: 10px; cursor: pointer; }
-        #imagen-proyectada { max-width: 95%; max-height: 60vh; border-radius: 20px; display: none; margin-top: 20px; border: 5px solid #333; }
+        #imagen-proyectada { max-width: 95%; max-height: 65vh; border-radius: 20px; display: none; margin-top: 20px; border: 5px solid #333; }
     </style>
 </head>
 <body>
@@ -44,9 +44,12 @@
         function proyectar() {
             const select = document.getElementById("edad");
             const imagen = document.getElementById("imagen-proyectada");
-            // Usamos encodeURI para que los espacios en los nombres funcionen bien
+            
+            // encodeURI es vital porque tus archivos tienen espacios
             imagen.src = encodeURI(select.value);
+            
             imagen.style.display = "inline-block";
+            imagen.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 
